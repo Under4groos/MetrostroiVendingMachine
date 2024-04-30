@@ -3,8 +3,10 @@ AddCSLuaFile( "cl_init.lua" )
 include("shared.lua")
 include("cl_init.lua")
 
-util.AddNetworkString("GUIInterface")
-util.AddNetworkString("DeleteSend")
+
+util.AddNetworkString( "message_box" )
+
+
 
 function ENT:Initialize()
 
@@ -13,6 +15,11 @@ function ENT:Initialize()
 	self:SetMoveType(MOVETYPE_VPHYSICS);
 	self:SetSolid(SOLID_VPHYSICS);
 	self:SetUseType(SIMPLE_USE);
+
+
+
+	self.ID_ENTITY = "Blindozer"
+	self.MessageData = {}
 
 	local phys = self:GetPhysicsObject()
  
@@ -30,19 +37,20 @@ end
 end	
 
 function ENT:Use(activator)
-	net.Start("GUIInterface")
-    net.Broadcast()
-   	self:GetModels()
+	if(self.MessageData["USER"] != nil) then 
+
+		self.MessageData["LASTUSER"] = self.MessageData["USER"]
+	end 
+		
+	self.MessageData["USER"] = activator
+
+	net.Start( "message_box" )
+		net.WriteEntity(self)
+		net.WriteTable(self.MessageData)
+	net.Send(activator)
+	activator:ChatPrint(table.ToString(self.MessageData))
 end
 
-SendToClient()
-
-net.Receive('DeleteSend', function()
-	local prop = net.ReadEntity()
-	print(prop)
-end)
 function ENT:PhysicsCollide( colData, collider )
-    -- you may get two completely different values, and the second one should be more accurate.
-    print(colData.PhysObject:GetEntity())
-    print(colData.OurOldVelocity:Length())
+    
 end

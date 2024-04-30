@@ -20,3 +20,6 @@ ENT.Purpose = "Выдача билетов пассажирам"
 ENT.Instructions = "При подходе открывается интерактивное меню"
 
 ENT.DisableDuplicator = "True"
+
+
+
