@@ -1,8 +1,5 @@
 
 
-util.AddNetworkString( "message_box" )
-
-
 
 
 
@@ -42,18 +39,17 @@ function ENT:Use(activator)
 end
 function ENT:PhysicsCollide( colData, collider )
    
-    -- local obj = colData.PhysObject
-	-- print(obj)
+   
     local obj_ent = colData["HitEntity"]
+	
+	if(obj_ent:IsValid()) then 
+
 	 
-	if(obj_ent:IsValid() and self.activator != nil) then 
-
-		obj_ent.MessageData = self.Activator
-		activator:ChatPrint("Remove entity")
+		obj_ent.MessageData["QDATA"] = {  math.random( 1 , 400 ) ,  math.random( 1 , 400 ) ,  math.random( 1 , 400 )}
+		obj_ent.MessageData["BOXUSER"] = self.Activator
 		self:Remove()
-		
 	end 
-
+	
 	
 	 
      

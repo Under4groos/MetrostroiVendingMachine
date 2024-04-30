@@ -52,5 +52,11 @@ function ENT:Use(activator)
 end
 
 function ENT:PhysicsCollide( colData, collider )
-    
+  
+	if(self.MessageData["USER"] != nil) then 
+
+		self.MessageData["USER"]:ChatPrint(tostring(collision_ent))
+		
+		
+	end 
 end
