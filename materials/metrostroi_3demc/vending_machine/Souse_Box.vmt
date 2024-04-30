@@ -1,0 +1,10 @@
+VertexLitGeneric
+{
+	$basetexture "metrostroi_3demc/vending_machine/Souse_Box"
+	$bumpmap "metrostroi_3demc/vending_machine/Souse_Box_Normal"
+	$surfaceprop Plastic
+	$ssbump 1
+
+	$envmap "env_cubemap"
+	$normalmapalphaenvmapmask 1
+}

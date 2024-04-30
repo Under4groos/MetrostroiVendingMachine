@@ -1,0 +1,11 @@
+VertexLitGeneric
+{
+	$basetexture "metrostroi_3demc/vending_machine/BLINDOZER_BODY_BUDKA_PLUS"
+	$bumpmap "metrostroi_3demc/vending_machine/BLINDOZER_BODY_ONE_BUMP"
+	$surfaceprop Metal
+	$ssbump 1
+	"$AmbientOcclTexture"  "metrostroi_3demc/vending_machine/BLINDOZER_BODY_ONE_DISP"
+
+	$envmap "metrostroi_3demc/vending_machine/BLINDOZER_BODY_ONE_BUMP"
+	$envmapmask "metrostroi_3demc/vending_machine/BLINDOZER_BODY_ONE_BUMP"
+}
